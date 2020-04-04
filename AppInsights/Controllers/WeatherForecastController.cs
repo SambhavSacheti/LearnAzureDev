@@ -26,6 +26,9 @@ namespace AppInsights.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogInformation($"{DateTime.Now.ToLongTimeString()}: Getting the Weather Data");
+            _logger.LogError($"{DateTime.Now.ToLongTimeString()}: This is an error");
+            _logger.LogWarning($"{DateTime.Now.ToLongTimeString()}: This is a warning");
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
